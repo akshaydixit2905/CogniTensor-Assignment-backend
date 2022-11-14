@@ -5,5 +5,6 @@ const router = Router();
 router.get("/", controller.getTasks);
 router.post("/", controller.addTask);
 router.delete("/:id", controller.removeTask);
+router.put("/:id", controller.updateTask)
 
 module.exports = router;

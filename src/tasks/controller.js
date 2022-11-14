@@ -26,8 +26,19 @@ const removeTask = (req, res) => {
     })
 }
 
+const updateTask = (req, res) => {
+    const id = parseInt(req.params.id);
+    const { task, priority } = req.body;
+
+    pool.query(queries.updateTask, [task, priority, id], (error, result) => {
+        if (error) throw error;
+        res.status(200).send("Task updated Succesfully!")
+    })
+}
+
 module.exports = {
     getTasks,
     addTask,
-    removeTask
+    removeTask,
+    updateTask
 }
